@@ -25,7 +25,7 @@ HomeAway is a full-stack rental booking application that allows users to browse,
 
 - **Admin Features:**
   - View total number of users, properties, and bookings.
-  - Track monthly bookings using a bar graph.
+  - Track last 6 months bookings using bar graph.
 
 - **Additional Features:**
   - Dark and light mode options.
