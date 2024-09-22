@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 
 
-const CountryInput = () => {
+const CountryInput = ({ defaultValue }) => {
 
   const name = "country";
 
@@ -20,7 +20,7 @@ const CountryInput = () => {
             Country
         </Label>
 
-        <Select defaultValue={formattedCountries[0].code} name={name} required>
+        <Select defaultValue={defaultValue || formattedCountries[0].code} name={name} required>
 
             <SelectTrigger id={name}>
                 <SelectValue />

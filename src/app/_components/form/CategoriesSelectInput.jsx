@@ -13,6 +13,7 @@ const CategoriesSelectInput = ({ defaultValue }) => {
 
   const name = "category";
 
+
   return <div className='mb-2'>
 
     <Label htmlFor={name} className='capitalize'>Categories</Label>

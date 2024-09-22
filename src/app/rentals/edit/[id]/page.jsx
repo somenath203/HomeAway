@@ -21,6 +21,7 @@ const Page = async ({ params }) => {
 
   const property = await fetchParticularRentalAllDetails(params.id);
 
+
   if(!property) {
 
     redirect('/');
