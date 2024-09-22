@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEON_DATABASE_CONNECTION_URL")
+}
+
+model Profile {
+  id                              String      @id @default(uuid())
+  clerkId                         String      @unique
+  firstName                       String
+  lastName                        String
+  userName                        String
+  email                           String
+  profileImage                    String
+  allPropertiesCreatedByProfile   Property[]
+  allFavouritePropertiesOfTheUser Favourite[]
+  allReviewsGivenByUserOnProperty Review[]
+  allBookingsOfTheUser            Booking[]
+  createdAt                       DateTime    @default(now())
+  updatedAt                       DateTime    @updatedAt
+}
+
+model Property {
+  id                                  String      @id @default(uuid())
+  name                                String
+  tagline                             String
+  category                            String
+  image                               String
+  country                             String
+  description                         String
+  price                               Int
+  noOfGuests                          Int
+  noOfBedrooms                        Int
+  noOfBeds                            Int
+  noOfBathrooms                       Int
+  idOfTheProfileWhoCreatedTheProperty String
+  profile                             Profile     @relation(fields: [idOfTheProfileWhoCreatedTheProperty], references: [clerkId], onDelete: Cascade)
+  amenities                           String
+  allFavouriteProperties              Favourite[]
+  allReviewsOfTheProperty             Review[]
+  propertyBooking                     Booking[]
+  createdAt                           DateTime    @default(now())
+}
+
+model Favourite {
+  id                                          String   @id @default(uuid())
+  idOfTheProfileWhoMarkedThePropertyFavourite String
+  profile                                     Profile  @relation(fields: [idOfTheProfileWhoMarkedThePropertyFavourite], references: [clerkId], onDelete: Cascade)
+  idOfThePropertyWhichIsMarkedAsFavourite     String
+  property                                    Property @relation(fields: [idOfThePropertyWhichIsMarkedAsFavourite], references: [id], onDelete: Cascade)
+  createdAt                                   DateTime @default(now())
+  updatedAt                                   DateTime @updatedAt
+}
+
+model Review {
+  id                                        String   @id @default(uuid())
+  idOfTheProfileWhoGaveAReviewToTheProperty String
+  profile                                   Profile  @relation(fields: [idOfTheProfileWhoGaveAReviewToTheProperty], references: [clerkId], onDelete: Cascade)
+  idOfThePropertyWhoseReviewHasBeenGiven    String
+  property                                  Property @relation(fields: [idOfThePropertyWhoseReviewHasBeenGiven], references: [id], onDelete: Cascade)
+  rating                                    Int
+  comment                                   String
+  createdAt                                 DateTime @default(now())
+  updatedAt                                 DateTime @updatedAt
+}
+
+model Booking {
+  id                                 String   @id @default(uuid())
+  idOfTheProfileWhoBookedTheProperty String
+  profile                            Profile  @relation(fields: [idOfTheProfileWhoBookedTheProperty], references: [clerkId], onDelete: Cascade)
+  idOfThePropertyWhichIsBooked       String
+  property                           Property @relation(fields: [idOfThePropertyWhichIsBooked], references: [id], onDelete: Cascade)
+  orderTotal                         Int
+  totalNights                        Int
+  checkIn                            DateTime
+  checkOut                           DateTime
+  paymentStatus                      Boolean  @default(false)
+  createdAt                          DateTime @default(now())
+  updatedAt                          DateTime @updatedAt
+}
