@@ -40,3 +40,18 @@ HomeAway is a full-stack rental booking application that allows users to browse,
 - **State Management:** Zustand
 - **Sharing:** React-Share
 
+## Live Deployment LInk
+
+https://home-away-somm.vercel.app/
+
+## Note regarding purchasing subscription using Stripe
+
+To make a successful payment using Stripe for premium resume templates in this project, you can use the following test card number provided by Stripe:
+
+- **Indian Test Visa Card:** `4000 0035 6000 0008`
+
+For the card details:
+- **Card Expiry Date:** Use any date in the future. For example, if today's date is 08/24 (August 2024), you can use an expiry date like 05/28 (May 2028), where `08` and `05` are months, and `24` and `28` are years.
+- **Security Code (CVV):** Use `111` or `123`.
+
+For more information, refer to the demo YouTube video of the project as mentioned above.
