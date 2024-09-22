@@ -39,7 +39,7 @@ const BookingForm = () => {
       <CardTitle className='mb-8'>Booking Summary</CardTitle>
       
 
-      <FormRow label={`$${price} x ${totalNoOfDaysUserHasBookedTheRental} days`} amount={subTotal} />
+      <FormRow label={`₹${price} x ${totalNoOfDaysUserHasBookedTheRental} days`} amount={subTotal} />
 
       <FormRow label='Clearning Charge' amount={cleaningChargeInRental} />
 
