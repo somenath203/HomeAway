@@ -50,9 +50,9 @@ HomeAway is a full-stack rental booking application that allows users to browse,
 
 https://home-away-somm.vercel.app/
 
-## Note Regarding Making Booking Payment Using Stripe
+## Note Regarding Making Rental Booking Payment Using Stripe
 
-To make a successful payment using Stripe for booking in this project, you can use the following test card number provided by Stripe:
+To make a successful payment using Stripe for booking rental in this project, you can use the following test card number provided by Stripe:
 
 - **Indian Test Visa Card:** `4000 0035 6000 0008`
 
