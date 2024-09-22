@@ -48,7 +48,7 @@ HomeAway is a full-stack rental booking application that allows users to browse,
 
 ## Live Deployment Link
 
-[HomeAway Live](https://home-away-somm.vercel.app/)
+https://home-away-somm.vercel.app/
 
 ## Note Regarding Purchasing Subscription Using Stripe
 
