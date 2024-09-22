@@ -1,5 +1,10 @@
 # HomeAway
 
+## Demo video of the application
+![homeawayprojectimg](https://github.com/user-attachments/assets/659709dc-f0af-4227-9f8f-36ef06260c85)
+
+https://www.youtube.com/watch?v=tfGcBi5CpBk
+
 ## Introduction
 
 HomeAway is a full-stack rental booking application that allows users to browse, create, and book rentals across various categories. Users can filter and search for rentals, like and share them via email or social media, as well as leave ratings and comments. The application also provides functionalities to manage user profiles, handle bookings, and view reviews. Admin users can track important statistics such as total users, properties, and bookings. The app features both dark and light modes and is fully responsive.
