@@ -2,7 +2,7 @@
 
 ## Introduction
 
-HomeAway is a full-stack rental booking application that allows users to browse, create, and book rentals across various categories. Users can filter and search rentals, like and share them via email or social media, as well as leave ratings and comments. The application also provides functionalities to manage user profiles, handle bookings, and view reviews. Admin users can track important statistics like total users, properties, and bookings. The app features both dark and light modes and is fully responsive.
+HomeAway is a full-stack rental booking application that allows users to browse, create, and book rentals across various categories. Users can filter and search for rentals, like and share them via email or social media, as well as leave ratings and comments. The application also provides functionalities to manage user profiles, handle bookings, and view reviews. Admin users can track important statistics such as total users, properties, and bookings. The app features both dark and light modes and is fully responsive.
 
 ## Features of the Application
 
@@ -16,7 +16,8 @@ HomeAway is a full-stack rental booking application that allows users to browse,
   - Manage bookings under the "Bookings" section, with options to cancel a booking.
   - View and manage personal reviews in the "Reviews" section.
   - Edit user profile information, including the profile picture.
-  
+  - **Restrictions on Reviews:** Users cannot leave a review or comment on their own created rental. They can only review rentals created by other users. Additionally, a user can give only one review per rental.
+
 - **Admin Features:**
   - View total number of users, properties, and bookings.
   - Track monthly bookings using a bar graph.
@@ -40,11 +41,11 @@ HomeAway is a full-stack rental booking application that allows users to browse,
 - **State Management:** Zustand
 - **Sharing:** React-Share
 
-## Live Deployment LInk
+## Live Deployment Link
 
-https://home-away-somm.vercel.app/
+[HomeAway Live](https://home-away-somm.vercel.app/)
 
-## Note regarding purchasing subscription using Stripe
+## Note Regarding Purchasing Subscription Using Stripe
 
 To make a successful payment using Stripe for premium resume templates in this project, you can use the following test card number provided by Stripe:
 
