@@ -19,10 +19,6 @@ const getAuthenticatedUser = async () => {
             throw new Error('you must be authenticated in order to access this route');
         }
 
-        if(!user?.privateMetadata?.hasProfile) {
-            redirect('/profile/create');
-        }
-
 
         return user;
 

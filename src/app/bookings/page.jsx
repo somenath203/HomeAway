@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { currentUser } from '@clerk/nextjs/server'; 
+import { redirect } from 'next/navigation';
 
 import EmptyList from '../_components/home/EmptyList';
 import CountryNameComponent from '../_components/card/CountryNameComponent';
@@ -41,6 +43,14 @@ const DeleteBookingComponent = ({ bookingId }) => {
 
 
 const Page = async () => {
+
+  const currentLoggedInUser = await currentUser();
+
+  if(!currentLoggedInUser?.privateMetadata?.hasProfile) {
+
+    redirect('/profile/create');
+    
+  }
 
   const allBookings = await fetchAllBookingsOfTheUser();
 

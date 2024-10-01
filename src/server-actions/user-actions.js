@@ -20,11 +20,6 @@ const getAuthenticatedUser = async () => {
             throw new Error('you must be authenticated in order to access this route');
         }
 
-        if(!user?.privateMetadata?.hasProfile) {
-            redirect('/profile/create');
-        }
-
-
         return user;
 
 
@@ -82,7 +77,6 @@ export const createProfileServerAction = async (prevState, formData) => {
         
     }
 
-    // if you use return {...} in try block, then redirect() would not work
     redirect('/'); 
 
 };

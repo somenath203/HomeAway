@@ -1,3 +1,6 @@
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+
 import EmptyList from "../_components/home/EmptyList";
 import { deleteReview, fetchAllReviewsByCurrentlyLoggedInUser } from "@/server-actions/reviews-actions";
 import ReviewCard from "../_components/review/ReviewCard";
@@ -7,6 +10,14 @@ import DeleteReviewButton from "../_components/review/DeleteReviewButton";
 
 
 const Page = async () => {
+
+  const currentLoggedInUser = await currentUser();
+
+  if(!currentLoggedInUser?.privateMetadata?.hasProfile) {
+
+    redirect('/profile/create');
+    
+  }
 
   const allReviewsByUser = await fetchAllReviewsByCurrentlyLoggedInUser();
 

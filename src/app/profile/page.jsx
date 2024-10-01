@@ -1,3 +1,6 @@
+import { currentUser } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+
 import FormContainer from '../_components/form/FormContainer';
 import {
   updateProfile,
@@ -11,8 +14,15 @@ import ImageInputContainer from '../_components/form/ImageInputContainer';
 
 const Page = async () => {
 
-  const profileOfCurrentLoggedInUser = await fetchWholeProfileOfUser();
+  const currentLoggedInUser = await currentUser();
 
+  if(!currentLoggedInUser?.privateMetadata?.hasProfile) {
+
+    redirect('/profile/create');
+    
+  }
+
+  const profileOfCurrentLoggedInUser = await fetchWholeProfileOfUser();
 
   return (
     <section>

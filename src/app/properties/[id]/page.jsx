@@ -1,3 +1,4 @@
+import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { auth } from '@clerk/nextjs/server';
@@ -20,6 +21,15 @@ import { findExistingReviewOnParticularPropertyByCurrentlyLoggedInUser } from '@
 
 
 const Page = async ({ params }) => {
+
+
+  const currentLoggedInUser = await currentUser();
+
+  if(!currentLoggedInUser?.privateMetadata?.hasProfile) {
+
+    redirect('/profile/create');
+    
+  }
 
 
   const DynamicMap = dynamic(() => import('@/app/_components/property/PropertyMap'), {

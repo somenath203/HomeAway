@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 import EmptyList from "../_components/home/EmptyList";
 import { fetchAllPropertiesOfTheCurrentLoggedInUser, deleteProperty } from "@/server-actions/property-actions";
@@ -32,6 +34,14 @@ const DeleteRentalComponent = ({ propertyId }) => {
 }
 
 const Page = async () => {
+
+  const currentLoggedInUser = await currentUser();
+
+  if(!currentLoggedInUser?.privateMetadata?.hasProfile) {
+
+    redirect('/profile/create');
+    
+  }
 
   const allRentalsOfTheAuthenticatedUser = await fetchAllPropertiesOfTheCurrentLoggedInUser();
   
