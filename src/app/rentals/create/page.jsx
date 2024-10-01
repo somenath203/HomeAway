@@ -1,3 +1,6 @@
+import { currentUser } from '@clerk/nextjs/server'; 
+import { redirect } from 'next/navigation';
+
 import FormContainer from "@/app/_components/form/FormContainer";
 import FormInput from "@/app/_components/form/FormInput";
 import { createNewProperty } from "@/server-actions/property-actions";
@@ -11,7 +14,16 @@ import CounterInput from "@/app/_components/form/CounterInput";
 import AmenitiesInput from "@/app/_components/form/AmenitiesInput";
 
 
-const Page = () => {
+const Page = async () => {
+
+  const currentLoggedInUser = await currentUser();
+
+  if(!currentLoggedInUser?.privateMetadata?.hasProfile) {
+
+    redirect('/profile/create');
+    
+  }
+
   return (
     <section>
         
