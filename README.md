@@ -46,10 +46,6 @@ HomeAway is a full-stack rental booking application that allows users to browse,
 - **State Management:** Zustand
 - **Sharing:** React-Share
 
-## Live Deployment Link
-
-https://home-away-somm.vercel.app/
-
 ## Note Regarding Making Rental Booking Payment Using Stripe
 
 To make a successful payment using Stripe for booking rental in this project, you can use the following test card number provided by Stripe:
